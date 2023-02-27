@@ -1,4 +1,4 @@
-"""BlueprintEntity class"""
+"""HeatTransferEntity class"""
 from __future__ import annotations
 
 from homeassistant.helpers.entity import DeviceInfo
@@ -8,8 +8,8 @@ from .const import ATTRIBUTION, DOMAIN, NAME, VERSION
 from .coordinator import BlueprintDataUpdateCoordinator
 
 
-class IntegrationBlueprintEntity(CoordinatorEntity):
-    """BlueprintEntity class."""
+class HeatTransferEntity(CoordinatorEntity):
+    """HeatTransferEntity class."""
 
     _attr_attribution = ATTRIBUTION
 

@@ -5,4 +5,38 @@ default_config:
 logger:
   default: info
   logs:
-    custom_components.integration_blueprint: debug
+    custom_components.heat_transfer: debug
+
+# If you need to debug uncommment the line below (doc: https://www.home-assistant.io/integrations/debugpy/)
+#debugpy:
+#  start: true
+#  wait: false
+
+input_number:
+  fake_temperature_sensor1:
+    name: Temperature
+    min: 0
+    max: 35
+    step: .1
+    icon: mdi:thermometer
+    unit_of_measurement: °C
+
+input_boolean:
+  # input_boolean to simulate the heater entity switch. Only for development environment.
+  fake_heater_switch1:
+    name: Heater 1 (Linear)
+    icon: mdi:radiator
+
+climate:
+  - platform: generic_thermostat
+    name: Underlying thermostat1
+    heater: input_boolean.fake_heater_switch1
+    target_sensor: input_number.fake_temperature_sensor1
+
+recorder:
+  include:
+    domains:
+      - input_boolean
+      - input_number
+      - switch
+      - climate

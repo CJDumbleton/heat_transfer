@@ -1,0 +1,15 @@
+{
+  "domain": "heat_transfer",
+  "name": "Heat Transfer",
+  "codeowners": [
+    "@cjdumbleton"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/cjdumbleton/heat_transfer",
+  "integration_type": "device",
+  "iot_class": "calculated",
+  "issue_tracker": "https://github.com/cjdumbleton/heat_transfer/issues",
+  "requirements": [],
+  "version": "0.0.0"
+}
