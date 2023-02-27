@@ -1,5 +1,5 @@
 {
-    "name": "ludeeus/integration_blueprint",
+    "name": "cjdumbleton/heat_transfer",
     "image": "mcr.microsoft.com/vscode/devcontainers/python:0-3.10-bullseye",
     "postCreateCommand": "scripts/setup",
     "forwardPorts": [
@@ -25,6 +25,8 @@
                 "editor.formatOnPaste": false,
                 "editor.formatOnSave": true,
                 "editor.formatOnType": true,
+                "editor.wordWrap": "wordWrapColumn",
+                "editor.wordWrapColumn": 80,
                 "files.trimTrailingWhitespace": true
             }
         }
