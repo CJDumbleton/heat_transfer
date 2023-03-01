@@ -4,8 +4,9 @@
             "user": {
                 "description": "If you need help with the configuration have a look here: https://github.com/cjdumbleton/heat_transfer",
                 "data": {
-                    "username": "Username",
-                    "password": "Password"
+                    "name": "Name",
+                    "in_temp_sensor_entity_id": "Indoor temperature sensor entity ID",
+                    "out_temp_sensor_entity_id": "Outdoor temperature sensor entity ID"
                 }
             }
         },
