@@ -2,13 +2,21 @@
 
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE)
-
+<!--
 [![hacs][hacsbadge]][hacs]
 ![Project Maintenance][maintenance-shield]
+<!---->
 
-_Integration to integrate with [custom_components/heat_transfer][custom_components/heat_transfer]._
+This is a heat transfer coefficient sensor for Home Assistant calculated from the [rate of heat loss divided by temperature difference](https://en.wikipedia.org/wiki/Newton's_law_of_cooling#Simplified_formulation). You can create one sensor for your whole home or sensors for each room with an outside wall where you have a temperature sensor.
 
-A heat transfer coefficient sensor calculated from the rate of heat loss divided by the temperature difference. You can create one sensor for your whole home or sensors for each room with an outside wall where you have a temperature sensor.
+The heat transfer coefficient is a measure of how well insulated your room / house is.
+
+Use the sensor to assess the impact of new insulation interventions eg keeping the window closed at night, hanging insulating curtains or blinds, loft insulation, cavity wall insulation etc.
+
+The sensor will only operate:
+- between midnight and 4am (It is assumed any heating and air conditioning is off during this period.);
+- when the wind speed is under 10 km/h; and
+- when precipitation probability is under 20%.
 
 UNDER DEVELOPMENT. WAIT FOR FIRST RELEASE BEFORE DOWNLOADING
 <!--
@@ -16,9 +24,7 @@ UNDER DEVELOPMENT. WAIT FOR FIRST RELEASE BEFORE DOWNLOADING
 
 Platform | Description
 -- | --
-`binary_sensor` | Show something `True` or `False`.
 `sensor` | Show info from blueprint API.
-`switch` | Switch something `True` or `False`.
 
 ## Installation
 
