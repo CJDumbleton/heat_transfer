@@ -1,6 +1,7 @@
 """Sensor platform for heat_transfer."""
 from __future__ import annotations
 
+from homeassistant.backports.enum import StrEnum
 from homeassistant.components.sensor import SensorEntity, SensorEntityDescription
 
 from .const import DOMAIN
@@ -14,6 +15,27 @@ ENTITY_DESCRIPTIONS = (
         icon="mdi:format-quote-close",
     ),
 )
+
+
+# Source https://github.com/dolezsa/thermal_comfort/blob/master/custom_components/thermal_comfort/sensor.py
+class SensorType(StrEnum):
+    """Sensor type enum."""
+
+    HEAT_TRANSFER_COEFFICIENT = "heat_transfer_coefficient"
+
+    def to_name(self) -> str:
+        """Return the title of the sensor type."""
+        return self.value.replace("_", " ").capitalize()
+
+    @classmethod
+    def from_string(cls, string: str) -> "SensorType":
+        """Return the sensor type from string."""
+        if string in list(cls):
+            return cls(string)
+        else:
+            raise ValueError(
+                f"Unknown sensor type: {string}. Please check https://github.com/CJDumbleton/heat_transfer for valid options."
+            )
 
 
 async def async_setup_entry(hass, entry, async_add_devices):
