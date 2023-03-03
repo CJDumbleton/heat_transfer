@@ -10,7 +10,6 @@ from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.const import CONF_NAME, Platform
 from homeassistant.core import HomeAssistant, State
 from homeassistant.helpers import selector
-import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
 
 from .const import (
@@ -335,8 +334,7 @@ def get_value(
     """
     if config_entry is not None:
         return config_entry.options.get(param, config_entry.data.get(param, default))
-    else:
-        return default
+    return default
 
 
 def build_schema(
@@ -418,24 +416,13 @@ class HeatTransferFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                     title=user_input[CONF_NAME],
                     data=user_input,
                 )
-
+        schema = build_schema(
+            config_entry=None,
+            hass=self.hass,
+        )
         return self.async_show_form(
             step_id="user",
-            data_schema=vol.Schema(
-                {
-                    vol.Required(CONF_NAME): cv.string,
-                    vol.Required(CONF_IN_T_SENSOR): selector.EntitySelector(
-                        selector.EntitySelectorConfig(
-                            domain=[SENSOR_DOMAIN, INPUT_NUMBER_DOMAIN]
-                        ),
-                    ),
-                    vol.Required(CONF_OUT_T_SENSOR): selector.EntitySelector(
-                        selector.EntitySelectorConfig(
-                            domain=[SENSOR_DOMAIN, INPUT_NUMBER_DOMAIN]
-                        ),
-                    )
-                }
-            ),
+            data_schema=schema,
             errors=_errors,
         )
 
