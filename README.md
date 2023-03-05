@@ -18,32 +18,44 @@ The sensor will only operate:
 - when the wind speed is under 10 km/h; and
 - when precipitation probability is under 20%.
 
-UNDER DEVELOPMENT. WAIT FOR FIRST RELEASE BEFORE DOWNLOADING
-<!--
-**This integration will set up the following platforms.**
+**This integration will set up the following sensor:**
 
-Platform | Description
--- | --
-`sensor` | Show info from blueprint API.
+*Heat Transfer Coefficient* ```heat_transfer_coefficient```
+- The rate of heat loss divided by the temperature difference
+
+UNDER DEVELOPMENT. WAIT FOR FIRST RELEASE BEFORE DOWNLOADING
+
+<!--
 
 ## Installation
 
+### HACS
+TBD
 
+### Manual
 1. Using the tool of choice open the directory (folder) for your HA configuration (where you find `configuration.yaml`).
 1. If you do not have a `custom_components` directory (folder) there, you need to create it.
 1. In the `custom_components` directory (folder) create a new folder called `custom_components/heat_transfer`.
 1. Download _all_ the files from the `custom_components/heat_transfer/` directory (folder) in this repository.
 1. Place the files you downloaded in the new directory (folder) you created.
 1. Restart Home Assistant
-1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Heat Transfer"
+1. In the HA UI go to "Settings" -> "Devices & Services" -> "Integrations" click "+" and search for "Heat Transfer"
 
-## Configuration is done in the UI
+## Usage
+To use Heat Transfer, check the documentation for your preferred way to set up the sensor:
+- [UI/Frontend (Config Flow)](https://github.com/CJDumbleton/heat_transfer/Documentation/config_flow)
+- [YAML]()
 
 <!---->
 
 ## Contributions are welcome!
 
 If you want to contribute to this please read the [Contribution guidelines](CONTRIBUTING.md)
+
+## Credits
+With thanks to the following repos on which the code is largely based:
+- [<img src="https://github.com/ludeeus.png" style="margin: 0.2em; vertical-align: middle; border-radius: 50%;border: solid 0.1px grey;" width="24"/> @ludeeus](https://github.com/ludeeus) [Integration Blueprint](https://github.com/ludeeus/integration_blueprint)
+- [<img src="https://github.com/dolezsa.png" style="margin: 0.2em; vertical-align: middle; border-radius: 50%;border: solid 0.1px grey;" width="24"/> @dolezsa](https://github.com/dolezsa) [Thermal Comfort](https://github.com/dolezsa/thermal_comfort)
 
 ***
 
